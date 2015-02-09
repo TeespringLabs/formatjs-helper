@@ -35,6 +35,32 @@ FormatJSHelper.prototype = {
   },
 
   /**
+   * Get a specific string at the given location if it exists, else empty string
+   * @params {String} any number of keys to the location of the message
+   * @returns {String}
+   */
+  get: function() {
+    if (!this.data || !this.data.messages) {
+      return '';
+    }
+
+    var obj = this.data.messages;
+    var value;
+
+    for (var i = 0; i < arguments.length; i++) {
+      value = obj[arguments[i]];
+
+      if (!value) {
+        return '';
+      } else {
+        obj = value;
+      }
+    }
+
+    return value;
+  },
+
+  /**
    * Gets intl data formatted for direct use in Formatjs
    * Could be used with Formatjs like this:
    *
@@ -81,32 +107,6 @@ FormatJSHelper.prototype = {
    */
   getIntl: function() {
     return this.data;
-  },
-
-  /**
-   * Get a specific string at the given location if it exists, else empty string
-   * @params {String} any number of keys to the location of the message
-   * @returns {String}
-   */
-  get: function() {
-    if (!this.data || !this.data.messages) {
-      return '';
-    }
-
-    var obj = this.data.messages;
-    var value;
-
-    for (var i = 0; i < arguments.length; i++) {
-      value = obj[arguments[i]];
-
-      if (!value) {
-        return '';
-      } else {
-        obj = value;
-      }
-    }
-
-    return value;
   }
 };
 
