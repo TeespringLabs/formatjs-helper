@@ -1,0 +1,29 @@
+{
+  "name": "formatjs-helper",
+  "version": "1.0.0",
+  "description": "FormatJSHelper is a simple wrapper for your localization message data that makes working with data in the formats needed by FormatJS easy.",
+  "main": "formatjs_helper.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TeespringLabs/formatjs-helper"
+  },
+  "keywords": [
+    "FormatJS",
+    "internationalization",
+    "localization",
+    "helper",
+    "javascript"
+  ],
+  "author": "Teespring",
+  "license": "Apache v2.0",
+  "bugs": {
+    "url": "https://github.com/TeespringLabs/formatjs-helper/issues"
+  },
+  "homepage": "https://github.com/TeespringLabs/formatjs-helper",
+  "devDependencies": {
+    "jasmine": "^2.2.1"
+  }
+}
