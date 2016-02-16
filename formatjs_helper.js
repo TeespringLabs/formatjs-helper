@@ -1,12 +1,15 @@
-/**
- * Creates a new helper on a set of data
- * @param {Object} data, ICU Message Format {locales: '<locale string>', messages: {...}}
- */
-function FormatJSHelper(data) {
-  this.data = data;
-}
+var formatJSHelper = {
+  /**
+   * Initialize this helper on a set of data
+   * Must be called before any other method
+   * @param {Object} data, ICU Message Format {locales: '<locale string>', messages: {...}}
+   */
+  initialize(data) {
+    this.data = data;
 
-FormatJSHelper.prototype = {
+    return this;
+  },
+
   /**
    * Get the locale string
    * @returns {String}
@@ -110,4 +113,4 @@ FormatJSHelper.prototype = {
   }
 };
 
-module.exports = FormatJSHelper;
+module.exports = formatJSHelper;

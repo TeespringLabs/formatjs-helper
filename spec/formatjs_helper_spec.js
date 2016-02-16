@@ -1,6 +1,8 @@
-var FormatJSHelper = require('../formatjs_helper');
+var formatJSHelper = require('../formatjs_helper');
 
-describe('FormatJSHelper', function() {
+console.log('sup', formatJSHelper);
+
+describe('formatJSHelper', function() {
   var data;
 
   beforeEach(function() {
@@ -16,7 +18,7 @@ describe('FormatJSHelper', function() {
 
   describe('getLocale', function() {
     it('returns the locale in the data', function() {
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.getLocale()).toBe('en-US');
     });
@@ -24,7 +26,7 @@ describe('FormatJSHelper', function() {
     it('returns an empty string if no locale in data', function() {
       data.locales = undefined;
 
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.getLocale()).toBe('');
     });
@@ -32,7 +34,7 @@ describe('FormatJSHelper', function() {
 
   describe('getLocaleLanguage', function() {
     it('returns only the language from a full locale string', function() {
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.getLocaleLanguage()).toBe('en');
     });
@@ -40,7 +42,7 @@ describe('FormatJSHelper', function() {
     it('returns only the language from a locale string with only a lanuguage', function() {
       data.locales = 'en';
 
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.getLocaleLanguage()).toBe('en');
     });
@@ -48,7 +50,7 @@ describe('FormatJSHelper', function() {
     it('returns an empty string if no locale in data', function() {
       data.locales = undefined;
 
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.getLocaleLanguage()).toBe('');
     });
@@ -56,7 +58,7 @@ describe('FormatJSHelper', function() {
 
   describe('get', function() {
     it('returns the correct language string in a typical use case', function() {
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.get('homeTemplate', 'title')).toBe('Home');
     });
@@ -64,7 +66,7 @@ describe('FormatJSHelper', function() {
     it('returns the correct language string at many depths', function() {
       var key = 'imakey';
       var value = 'imaval';
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
       var obj = data.messages;
       var args = [key];
 
@@ -82,7 +84,7 @@ describe('FormatJSHelper', function() {
 
   describe('getIntl', function() {
     it('returns the full intl data object', function() {
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.getIntl()).toBe(data);
     });
@@ -90,7 +92,7 @@ describe('FormatJSHelper', function() {
 
   describe('getData', function() {
     it('returns the intl data under the intl key', function() {
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.getData()).toEqual({intl: data});
     });
@@ -98,7 +100,7 @@ describe('FormatJSHelper', function() {
 
   describe('getOptions', function() {
     it('returns the intl data under the intl key under the data key', function() {
-      var formatJSHelper = new FormatJSHelper(data);
+      formatJSHelper.initialize(data);
 
       expect(formatJSHelper.getOptions()).toEqual({ data: {intl: data}});
     });
