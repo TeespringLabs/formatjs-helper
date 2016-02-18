@@ -4,7 +4,7 @@ var formatJSHelper = {
    * Must be called before any other method
    * @param {Object} data, ICU Message Format {locales: '<locale string>', messages: {...}}
    */
-  initialize(data) {
+  initialize: function(data) {
     this.data = data;
 
     return this;
