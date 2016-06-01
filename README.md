@@ -4,9 +4,9 @@ FormatJSHelper is a simple wrapper for your localization message data that makes
 
 ## Usage
 
-To start, create an instance of the class with your message data (formatted according to [ICU Message Syntax](http://userguide.icu-project.org/formatparse/messages)) as the single parameter:
+To start, initialize the object with your message data (formatted according to [ICU Message Syntax](http://userguide.icu-project.org/formatparse/messages)) as the single parameter:
 
-    var formatJSHelper = new FormatJSHelper({
+    formatJSHelper.initialize({
       locales: 'en-US',
       messages: {...}
     });
@@ -33,7 +33,7 @@ To see all methods available for FormatJSHelper, check out the well-documented s
 
 Tests are located in the `spec/` folder.  You can run them with the command:
 
-    jasmine
+    npm test
 
 ## License
 
